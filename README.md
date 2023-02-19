@@ -1,4 +1,4 @@
-# read 모델용 jqpl, native query sample
+# read 모델용 jpql, native query sample
 
 ## Entity
 
