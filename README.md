@@ -94,3 +94,8 @@ final String sql = """
             return new ResultDto(firstName, lastName, street, city, state, zipCode);
         });
 ```
+
+
+##레퍼런스
+- NamedJdbcTemplate: https://www.baeldung.com/spring-jdbctemplate-in-list
+- ignoring null Parameters: https://www.baeldung.com/spring-data-jpa-null-parameters
