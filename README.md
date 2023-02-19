@@ -63,10 +63,10 @@ final String sql = """
                 WHERE (:firstName is null or :firstName = '' or  p.firstName = :firstName) 
                 AND (:lastName is null or :lastName = '' or p.lastName = :lastName)
                 """;
-        final Query nativeQuery = entityManager.createQuery(sql, ResultDto.class);
-        nativeQuery.setParameter("firstName", "John");
-        nativeQuery.setParameter("lastName", null);
-        final List<ResultDto> resultList = nativeQuery.getResultList();
+        final Query jpqlQuery = entityManager.createQuery(sql, ResultDto.class);
+        jpqlQuery.setParameter("firstName", "John");
+        jpqlQuery.setParameter("lastName", null);
+        final List<ResultDto> resultList = jpqlQuery.getResultList();
 ```
 
 
