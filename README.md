@@ -70,7 +70,7 @@ final String sql = """
 ```
 
 
-### jdbcTemplate
+### NamedJdbcTemplate
 ```Java
 final String sql = """
                 SELECT
