@@ -3,12 +3,9 @@ package com.example.queryexample;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
-import jakarta.persistence.TypedQuery;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -41,10 +38,10 @@ public class QueryTest {
                 WHERE (:firstName is null or :firstName = '' or  p.firstName = :firstName) 
                 AND (:lastName is null or :lastName = '' or p.lastName = :lastName)
                 """;
-        final Query nativeQuery = entityManager.createQuery(sql, ResultDto.class);
-        nativeQuery.setParameter("firstName", "John");
-        nativeQuery.setParameter("lastName", null);
-        final List<ResultDto> resultList = nativeQuery.getResultList();
+        final Query jpqlQuery = entityManager.createQuery(sql, ResultDto.class);
+        jpqlQuery.setParameter("firstName", "John");
+        jpqlQuery.setParameter("lastName", null);
+        final List<ResultDto> resultList = jpqlQuery.getResultList();
 
         System.out.println("resultList = " + resultList);
 
@@ -61,6 +58,7 @@ public class QueryTest {
                 WHERE (:firstName is null or :firstName = '' or  p.first_name = :firstName)
                 AND (:lastName is null or :lastName = '' or p.last_name = :lastName)
                 """;
+        System.out.println("sql = " + sql);
         final SqlParameterSource parameter = new MapSqlParameterSource()
                 .addValue("firstName", "John")
                 .addValue("lastName", null);
