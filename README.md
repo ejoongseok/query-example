@@ -99,3 +99,4 @@ final String sql = """
 ##레퍼런스
 - NamedJdbcTemplate: https://www.baeldung.com/spring-jdbctemplate-in-list
 - ignoring null Parameters: https://www.baeldung.com/spring-data-jpa-null-parameters
+- Java TextBlock: https://www.baeldung.com/java-text-blocks
